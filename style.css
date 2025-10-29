@@ -1,0 +1,231 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Changed to flex-start to allow content to naturally flow down */
+    max-height: 100vh;
+    max-width: 100%;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px; /* Add some padding for better mobile viewing */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+.app_name{
+    font-weight: 600;
+    text-align: center;
+    font-size: 25px;
+    color: #5a7d47;
+    padding: 5px;
+    border-bottom: solid #cdebbb;
+    margin-bottom: 12px;
+}
+.gpa-calculator {    
+    overflow-wrap: break-word;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px 25px;
+    width: 100%;
+    max-width: 400px; /* Max width for desktop */
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em;
+    padding: 0 5px; /* Adjust padding to align with inputs */
+}
+
+.header .column-title:nth-child(1) { flex: 3;width: 150px; text-align: center;}
+.header .column-title:nth-child(2) { flex: 1; width: 50px; text-align: center;}
+.header .column-title:nth-child(3) {  flex: 1.5;width: 75px; text-align: center; } Adjusted for select box
+
+.course-row {
+
+    margin-bottom: 12px;
+    gap: 10px; /* Space between inputs */
+}
+
+.course-row input,
+.course-row select {
+    padding: 10px 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: 'Handlee', cursive; /* A handwriting-like font */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    -webkit-appearance: none; /* Remove default browser styling for selects */
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fdfdfd;
+    color: #333;
+    position: relative;
+    cursor: text; /* Default cursor for inputs */
+}
+
+.course-row select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23777%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%00-13.7-6.9H18.8c-10%200-16.7%207.8-13.7%2016.7l133.7%20133.7a17.6%2017.6%200%200%0025.4%200L287%2086.1c3-8.9-3.7-16.7-13.7-16.7z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px; /* Make space for the arrow */
+    cursor: pointer;
+}
+
+
+.course-row input.course-name { width: 150px; }
+.course-row input.credits {width: 50px; text-align: center; }
+.course-row select.grade { width: 75px; text-align: center; }
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #5a7d47; /* A subtle green */
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.95em;
+    margin-top: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.link-button:hover {
+    background-color: #e6f0e0;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 15px; /* Space between buttons if they wrap */
+}
+
+.calculate-button, .clear-button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.05em;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.calculate-button {
+    background-color: #5a7d47;
+    color: white;
+    border: none;
+    width: 150px;
+}
+
+.calculate-button:hover {
+    background-color: #4b6a39;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.calculate-button span {
+    font-size: 0.8em;
+    transform: translateY(1px);
+}
+
+.clear-button {
+    background-color: #e0e0e0;
+    color: #555;
+    border: none;
+    width: 50px;
+}
+
+.clear-button:hover {
+    background-color: #d0d0d0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.gpa-output {
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    min-height: 50px; /* Ensure it has some height even when empty */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    .gpa-calculator {
+        padding: 15px 20px;
+    }
+
+    .header {
+        font-size: 0.8em;
+        margin-bottom: 15px;
+        padding: 0 2px;
+    }
+
+    .course-row {
+        flex-direction: column; /* Stack inputs vertically */
+        margin-bottom: 15px;
+        gap: 25px; /* Reduce gap when stacked */
+    }
+
+    .course-row input,
+    .course-row select {
+        width: 100%; /* Full width for stacked inputs */
+        box-sizing: border-box;
+    }
+
+    .header .column-title:nth-child(1),
+    .header .column-title:nth-child(2),
+    .header .column-title:nth-child(3) {
+        flex: 1; /* Reset flex for smaller screens */
+        text-align: center; /* Center align all titles */
+    }
+
+    .controls {
+        display: flex;
+        /* flex-direction: column; Stack buttons vertically */
+        /* align-items: stretch; Stretch buttons to full width */
+        margin-top: 25px;
+        gap: 10px;
+    }
+
+    .calculate-button, .clear-button {
+        width: 130px;
+        box-sizing: border-box;
+    }
+
+    .link-button {
+        width: 100%; /* Stretch link buttons too */
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+/* Importing a handwriting font for the inputs */
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
